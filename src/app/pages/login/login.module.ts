@@ -10,6 +10,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatGridListModule,
     MatFormFieldModule,
     MatInputModule,
-    FlexLayoutModule 
+    FlexLayoutModule ,
+    ReactiveFormsModule
   ]
 })
 export class LoginModule { }
