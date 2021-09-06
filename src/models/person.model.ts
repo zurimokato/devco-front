@@ -1,27 +1,25 @@
-export class Person{
+export class User{
     userName:string;
     name:string;
-    lastName:string;
-    password?:string;
     email:string;
+    roles?:string[]
 
     constructor(){
         this.userName="";
         this.name="";
-        this.lastName="";
         this.email="";
     }
 }
 
 
-export class Candidate extends Person{
+export class Candidate extends User{
     constructor(){
         super()
     }
 }
 
 
-export class Recruiter extends Person{
+export class Recruiter extends User{
     constructor(){
         super()
     }

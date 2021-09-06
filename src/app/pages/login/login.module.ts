@@ -2,7 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { LoginRoutingModule } from './login-routing.module';
-
+import { MatCardModule } from '@angular/material/card';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatButtonModule} from '@angular/material/button';
+import { MatGridListModule } from '@angular/material/grid-list';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -11,7 +18,15 @@ import { LoginRoutingModule } from './login-routing.module';
   ],
   imports: [
     CommonModule,
-    LoginRoutingModule
+    LoginRoutingModule,
+    MatCardModule,
+    MatProgressBarModule,
+    MatDividerModule,
+    MatButtonModule,
+    MatGridListModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FlexLayoutModule 
   ]
 })
 export class LoginModule { }

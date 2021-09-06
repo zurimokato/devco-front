@@ -1,0 +1,24 @@
+.example-card {
+  margin: 40px;
+  max-width: 400px;
+}
+
+mat-grid-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+mat-form-field{
+    width: 75%;
+}
+
+mat-card-action{
+    button{
+        padding: auto;
+        margin: auto;
+    }
+}
+
+body{
+    background-color: #eee;
+}

@@ -1,4 +1,5 @@
 export class Test{
+    name?:string;
     questions:SimpleQuestion[];
 
     constructor(){
@@ -7,7 +8,11 @@ export class Test{
 }
 
 
-export class SimpleQuestion{
+export class SimpleQuestion{ 
+    answers:Answer[]
+    constructor(){
+        this.answers=[]
+    }
 
 }
 
@@ -18,8 +23,10 @@ export class MultiSelecQuestion extends SimpleQuestion{
 
 
 export class Answer{
+    value:number;
     isCorrect:boolean;
     constructor(){
         this.isCorrect=false;
+        this.value=4;
     }
 }
