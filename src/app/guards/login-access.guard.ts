@@ -7,25 +7,25 @@ import { AuthService } from '../services/auth.service';
   providedIn: 'root'
 })
 export class LoginAccessGuard implements CanActivate {
-
+  access:boolean=true;
   constructor(  private authService:AuthService,
     private router:Router){}
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      let access:boolean=true;
+      
 
       this.authService.getUser().subscribe(data=>{
         if(data==null){
-          access=true;
-          this.router.navigate(["/login"])
+          this.access=true;
+          
         }else{
-          access=false;
+          this.access=false;
         }
       })
     
-      return access;
+      return this.access;
   }
   
 }

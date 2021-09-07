@@ -17,7 +17,7 @@ export class AuthService {
     return this.httpClient.post(`${this.baseUrl}/users/login`, {
       email: user.userEmail,
       password: user.userPassword
-    }).toPromise();
+    });
     
   }
 
