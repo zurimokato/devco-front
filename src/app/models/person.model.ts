@@ -1,13 +1,20 @@
 export class User{
-    userName:string;
-    name:string;
-    email:string;
+    id?: string;
+    realm?:string;
+    username?: string;
+    email?: string;
+    emailVerified?: true;
+    firstName?:string;
+    lastName?:string;
+    verificationToken?: string;
+    password?: string
+    
+   
+    
     roles?:string[]
 
     constructor(){
-        this.userName="";
-        this.name="";
-        this.email="";
+       
     }
 }
 
