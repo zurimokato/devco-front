@@ -31,6 +31,15 @@ export class TestService {
   
   updateTest(userId:string, testid:string){
 
+    return this.httpClient.patch(`${this.authService.baseUrl}/tests/${testid}`,
+    {
+ 
+      "userIdCandidate": userId
+      },
+      {
+        headers:this.authService.getHeaders()
+      })
+
   }
 
   getQuestions(testId:string){

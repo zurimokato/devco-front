@@ -38,7 +38,12 @@ export class DialogEditCandidate implements OnInit {
         let candidate=this.userForm.value;
         this.recruiterService.updateCandidate(this.data.user.id,JSON.stringify(candidate)).then((data)=>{
             console.log(data);
-        })
+        });
+        let testId=this.userForm.controls['test'].value as string;
+        if(testId!==''){
+            this.testSrvice.updateTest(this.data.user.id, testId);
+        }
+        
     }
 
     //obtener el email form para validar sus valores

@@ -27,14 +27,14 @@
                 <mat-label>Asignar Test</mat-label>
                 <mat-select formControlName="test">
                     <mat-option>Clear</mat-option>
-                    <mat-option  *ngFor="let test of tests" value="valid">{{test.name}}</mat-option>
+                    <mat-option  *ngFor="let test of tests" value="test.id">{{test.name}}</mat-option>
                    
                   </mat-select>
             </mat-form-field>
             <div fxLayout="row">
                 <button mat-raised-button mat-dialog-close [disabled]="!userForm.valid" (click)="updateCandidate()"
                     color="primary">Actualizar</button>
-                <button mat-raised-button mat-dialog-close [disabled]="!userForm.valid" (click)="updateCandidate()"
+                <button mat-raised-button mat-dialog-close
                     color="warn">Cancelar</button>
             </div>
 
