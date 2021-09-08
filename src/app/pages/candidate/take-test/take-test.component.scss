@@ -1,36 +1,45 @@
 .container {
-    margin-top: 5px;
-    height: 100%;
-    background-color: #eee;
-  }
-  
-  .item {
-  
-    background-color: white;
-  }
-  
-  .item-center {
-  
-    background-color: blue;
-  }
-  
-  mat-card {
-    width: 95%;
-    height: 95%;
-  }
-  
-  .tripulante {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 15px;
-  }
-  
-  .text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    justify-items: center;
-    text-align: center;
-  }
-  
+  margin-top: 5px;
+  height: 100%;
+  background-color: #eee;
+}
+
+.left {
+  height: 100%;
+  background: #fff;
+    color: rgba(0,0,0,.87);
+}
+
+.item {
+
+  background-color: white;
+}
+
+.item-center {
+
+  background-color: blue;
+}
+
+.estilo {
+  width: 95%;
+  height: 100%;
+}
+
+.tripulante {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  text-align: center;
+}
+
+mat-list-item {
+  margin: 15px;
+}

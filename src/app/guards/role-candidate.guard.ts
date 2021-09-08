@@ -19,11 +19,10 @@ export class RoleCandidateGuard implements CanActivate {
     let isRecruiter:boolean=false;
     let user=JSON.parse(sessionStorage.getItem("user") as string) as any;
 
-    if(user.rol!=='canidate'){
+    if(user.rol!=='candidate'){
       this.router.navigate(['/home'])
       return false
     }else{
-
       return true;
     }
 

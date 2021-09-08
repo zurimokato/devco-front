@@ -48,4 +48,11 @@ export class TestService {
     }).toPromise()
   }
 
+  getAnwser(questionId:string){
+    console.log(questionId)
+    return this.httpClient.get(`${this.authService.baseUrl}/simple-questions/${questionId}/anwsers`,{
+      headers:this.authService.getHeaders()
+    }).toPromise();
+  }
+
 }
