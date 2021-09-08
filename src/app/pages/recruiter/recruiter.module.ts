@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { RecruiterRoutingModule } from './recruiter-routing.module';
-import { CreateTestComponent } from './create-test/create-test.component';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -17,10 +16,10 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import { TableTestComponent } from './table-test/table-test.component';
 import { MatTableModule } from '@angular/material/table';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
-    CreateTestComponent,
     CreateUserComponent,
     TableTestComponent,
   ],
@@ -38,7 +37,8 @@ import { MatTableModule } from '@angular/material/table';
     MatIconModule,
     MatButtonModule,
     MatDialogModule,
-    MatTableModule
+    MatTableModule,
+    MatSelectModule
   ]
 })
 export class RecruiterModule { }

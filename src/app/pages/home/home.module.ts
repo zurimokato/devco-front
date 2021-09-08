@@ -28,7 +28,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ToolbarComponent,
     FooterComponent,
     HomeRecuiterComponent,
-    DialogEditCandidate
+    DialogEditCandidate,
+    HomeCandidateComponent
   ],
   imports: [
     CommonModule,

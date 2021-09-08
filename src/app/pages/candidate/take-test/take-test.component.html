@@ -1,1 +1,38 @@
-<p>take-test works!</p>
+<mat-toolbar fxLayout="row" color="primary">
+    <button mat-icon-button (click)="backClicked()" class="example-icon"
+        aria-label="Example icon-button with menu icon">
+        <mat-icon>keyboard_backspace</mat-icon>
+    </button>
+    <span>Crear Usuarios</span>
+    <span class="example-spacer"></span>
+</mat-toolbar>
+<div class="container" fxLayout.gt-sm="row" fxLayout.lt-md="column">
+    <div fxFlex.gt-sm="20%" fxFlex.lt-md="20%" fxLayoutAlign="center center" class="right">
+        <mat-card class="example-card">
+
+            <mat-card-content class="tripulante" fxLayout="column" fxLayout.lt-md="row" fxFlex.sm="colum">
+                <div *ngIf="user" class="text">
+                    <mat-card-title>{{user.firstName}} {{user.lastName}}</mat-card-title>
+                    <p>{{user.email}}</p>
+                </div>
+                <img class="tripulante" src="./assets/imgs/man.png" width="150px" height="150px">
+                <button mat-stroked-button color="warn" class="example-icon" (click)="logoutUser()"
+                    aria-label="Example icon-button with share icon">
+                    <span>Salir</span>
+                    <mat-icon color="warn">exit_to_app</mat-icon>
+                </button>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div fxFlex.gt-sm="80%" fxFlex.lt-md="80%" fxLayoutAlign="center center" class="left">
+        <mat-card *ngIf="user" class="example-card">
+
+            <mat-card-title>{{user.firstName}} {{user.lastName}}</mat-card-title>
+           
+            <mat-card-content>
+                
+            </mat-card-content>
+
+        </mat-card>
+    </div>
+</div>

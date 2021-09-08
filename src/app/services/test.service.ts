@@ -9,8 +9,10 @@ export class TestService {
 
   constructor(private httpClient:HttpClient, private authService:AuthService) { }
 
-  getTest(userId:string){
-
+  getTest(testId:string){
+    return this.httpClient.get(`${this.authService.baseUrl}/tests/${testId}`,{
+      headers:this.authService.getHeaders()
+    }).toPromise();
   }
   addTest(userId:string, test:any){
 
@@ -20,9 +22,21 @@ export class TestService {
       headers:this.authService.getHeaders()
     }).toPromise();
   }
+
+  getThemes(){
+    return this.httpClient.get(`${this.authService.baseUrl}/themes`,{
+      headers:this.authService.getHeaders()
+    }).toPromise();
+  }
   
   updateTest(userId:string, testid:string){
 
+  }
+
+  getQuestions(testId:string){
+    return this.httpClient.get(`${this.authService.baseUrl}/${testId}/simple-questions`,{
+      headers:this.authService.getHeaders()
+    }).toPromise()
   }
 
 }

@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {  MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -16,6 +19,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MatIconModule,
+    MatCardModule,
+    MatToolbarModule
   ],
   providers: [],
   exports:[MatGridListModule],
