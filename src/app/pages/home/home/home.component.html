@@ -26,13 +26,13 @@
                 
 
 
-                <div *ngIf="user.roles[0]=='candidate'">
+                <div *ngIf="user.rol=='candidate'">
                     <p>Usted tiene asignadas las siguientes pruebas. {{user.roles[0]}}</p>
 
 
                 </div>
 
-                <div *ngIf="user.roles[0]='recruiter'">
+                <div *ngIf="user.rol=='recruiter'">
                     <app-home-recuiter></app-home-recuiter>
 
 

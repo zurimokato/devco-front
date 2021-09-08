@@ -1,0 +1,51 @@
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+
+.text-center {
+
+  text-align: center;
+
+}
+
+.container {
+  margin-top: 5px;
+  height: 100%;
+  background-color: #eee;
+}
+
+.item {
+
+  background-color: white;
+}
+
+.item-center {
+
+  background-color: blue;
+}
+
+mat-card {
+  width: 95%;
+  height: 95%;
+}
+
+.tripulante {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  text-align: center;
+}

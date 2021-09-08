@@ -1,12 +1,13 @@
 <mat-toolbar fxLayout="row" color="primary">
-    <button  mat-icon-button (click)="backClicked()" class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>keyboard_backspace</mat-icon>
+    <button mat-icon-button (click)="backClicked()" class="example-icon"
+        aria-label="Example icon-button with menu icon">
+        <mat-icon>keyboard_backspace</mat-icon>
     </button>
-    <span >Crear Usuarios</span>
+    <span>Crear Usuarios</span>
     <span class="example-spacer"></span>
-  </mat-toolbar>
+</mat-toolbar>
 <div class="container" fxLayout.gt-sm="row" fxLayout.lt-md="column">
-   
+
     <div fxFlex.gt-sm="20%" fxFlex.lt-md="20%" fxLayoutAlign="center center" class="right">
         <mat-card class="example-card">
 
@@ -28,15 +29,16 @@
         <mat-card>
             <mat-card-content>
                 <form fxLayout="column" [formGroup]="userForm">
-                    <mat-form-field  appearance="outline">
+                    <mat-form-field appearance="outline">
                         <mat-label>Email</mat-label>
                         <input matInput placeholder="Placeholder" type="email" formControlName="email">
                     </mat-form-field>
                     <div *ngIf="(email.invalid && email.touched) || email.dirty">
                         <small *ngIf="email.errors?.required" class="text-danger">Email es un campo requerido</small>
                         <!--question mark(?) is a safe navigation operator-->
-                        <small *ngIf="email.errors?.pattern" class="text-danger">Porfavor Ingresa un correo valido</small>
-                      </div>
+                        <small *ngIf="email.errors?.pattern" class="text-danger">Porfavor Ingresa un correo
+                            valido</small>
+                    </div>
 
                     <mat-form-field appearance="outline">
                         <mat-label>Primer Nombre</mat-label>
@@ -44,9 +46,10 @@
                             formControlName="firstName">
                     </mat-form-field>
                     <div *ngIf="(firstName.invalid && firstName.touched) || firstName.dirty">
-                        <small *ngIf="firstName.errors?.required" class="text-danger">Nombre es un campo requerido</small>
+                        <small *ngIf="firstName.errors?.required" class="text-danger">Nombre es un campo
+                            requerido</small>
                         <!--question mark(?) is a safe navigation operator-->
-                      </div>
+                    </div>
                     <mat-form-field appearance="outline">
                         <mat-label>Apellido</mat-label>
                         <input matInput placeholder="Placeholder" type="text" autocomplete="off"
@@ -59,11 +62,14 @@
                             formControlName="password">
                     </mat-form-field>
                     <div *ngIf="(password.invalid && password.touched )|| password.dirty">
-                        <small *ngIf="password.errors?.required" class="text-danger">Contraseña es un campo requerido</small>
+                        <small *ngIf="password.errors?.required" class="text-danger">Contraseña es un campo
+                            requerido</small>
                         <!--question mark(?) is a safe navigation operator-->
-                        <small *ngIf="password.errors?.minlength" class="text-danger">La contraseña debe ser minino de 8 caracteres</small>
-                      </div>
-                    <button class="button" mat-raised-button  [disabled]="!userForm.valid" (click)="createCandidate()" color="primary">Crear Candidato</button>
+                        <small *ngIf="password.errors?.minlength" class="text-danger">La contraseña debe ser minino de 8
+                            caracteres</small>
+                    </div>
+                    <button class="button" mat-raised-button [disabled]="!userForm.valid" (click)="createCandidate()"
+                        color="primary">Crear Candidato</button>
                 </form>
             </mat-card-content>
 

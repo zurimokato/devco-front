@@ -15,11 +15,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
+import { TableTestComponent } from './table-test/table-test.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
     CreateTestComponent,
     CreateUserComponent,
+    TableTestComponent,
   ],
   imports: [
     CommonModule,
@@ -34,7 +37,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTableModule
   ]
 })
 export class RecruiterModule { }
