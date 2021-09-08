@@ -16,12 +16,18 @@ export class RecruiterService {
   }
 
   getCandidates(){
-    return this.httpClient.get(`${this.authService.baseUrl}/users/candidates?filter[where][roles][inq]='candidate'`,{headers:this.authService.headers} ).toPromise();
+    return this.httpClient.get(`${this.authService.baseUrl}/users/candidates?filter[where][roles][inq]='candidate'`,{headers:this.authService.getHeaders()} ).toPromise();
   }
 
   createCandidate(candidate:any){
     return this.httpClient.post(`${this.authService.baseUrl}/users`,candidate,{
-      headers:this.authService.headers
+      headers:this.authService.getHeaders()
     }).toPromise();
+  }
+
+  updateCandidate(id:string,candidate:any){
+    return this.httpClient.put(`${this.authService.baseUrl}/users/${id}`,candidate,{
+      headers:this.authService.getHeaders()
+    }).toPromise()
   }
 }

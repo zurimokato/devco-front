@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog,MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
-import { RecruiterService } from 'src/app/services/recruiter.service';
+import { AuthService } from '../../../services/auth.service';
+import { RecruiterService } from '../../../services/recruiter.service';
 
 @Component({
   selector: 'app-create-user',
@@ -14,7 +16,7 @@ export class CreateUserComponent implements OnInit {
   loading: boolean = false;
 
   userForm: FormGroup;
-  constructor(private authService: AuthService, private router: Router, private recruiterService: RecruiterService) {
+  constructor(private location:Location,private authService: AuthService, private router: Router, private recruiterService: RecruiterService) {
     this.userForm = new FormGroup({
       firstName: new FormControl('', Validators.compose([Validators.required])),
       lastName: new FormControl('', Validators.compose([])),
@@ -41,7 +43,7 @@ export class CreateUserComponent implements OnInit {
   get email() {
     return this.userForm.get('email') as FormControl;
   }
-
+  //obtener el firtsName control para validar si es requerido
   get firstName(){
     return this.userForm.get('firstName') as FormControl;
   }
@@ -57,4 +59,11 @@ export class CreateUserComponent implements OnInit {
       console.log(success);
     });
   }
+
+  //regresar atras
+  backClicked() {
+    this.location.back();
+  }
 }
+
+

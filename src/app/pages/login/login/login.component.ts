@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
         this.authService.getUserId(token.token).then(id => {
           if (id) {
             console.log(id)
-            this.authService.getUserData(token.token, id).then(data => {
+            this.authService.getUserData(id).then(data => {
               if (data) {
                 this.authService.setUser(data);
                 this.loading = false;

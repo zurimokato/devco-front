@@ -16,7 +16,6 @@ export class HomeComponent implements OnInit {
     this.authService.getUser().subscribe((data:any)=>{
       if(data){
         this.user=data;
-        console.log(data)
       }
     })
   }

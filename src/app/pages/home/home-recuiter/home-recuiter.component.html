@@ -1,11 +1,24 @@
 <div class="row">
   <div class="column">
-    <mat-card-subtitle>Lista de candidatos</mat-card-subtitle>
+    <div class="row">
+      <mat-card-subtitle class="column">Lista de candidatos</mat-card-subtitle>
+      <button class="column add" mat-raised-button color="accent" [routerLink]="['/recruiter/add-user']"
+        aria-label="Example icon button with a delete icon">
+        <mat-icon>add</mat-icon>
+        Registrar candidato
+      </button>
+    </div>
   </div>
   <div class="column">
-    <button mat-fab color="primary" [routerLink]="['/recruiter/add-user']" aria-label="Example icon button with a delete icon">
-      <mat-icon>add</mat-icon>
-    </button>
+    <div class="row">
+      <button class="column" mat-raised-button color="accent" [routerLink]="['/recruiter/add-user']"
+        aria-label="Example icon button with a delete icon">
+        <mat-icon>edit</mat-icon>
+        Revisar Pruebas Tecnicas
+      </button>
+      <div class="column"></div>
+
+    </div>
   </div>
 </div>
 
@@ -39,9 +52,7 @@
     <th class="text-center" mat-header-cell *matHeaderCellDef> Acciones </th>
 
     <td class="text-center" mat-cell *matCellDef="let row">
-      <button mat-button>DETAILS</button>
-      <button mat-button>EDIT</button>
-      <button mat-button>DELETE</button>
+      <button mat-button (click)="openDialog(row)">EDIT</button>
     </td>
   </ng-container>
 

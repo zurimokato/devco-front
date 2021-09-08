@@ -33,8 +33,13 @@
     justify-items: center;
     text-align: center;
   }
-  mat-form-field, button{
+  mat-form-field, .button{
     align-self: center;
     width: 75%;
     margin-top: 20px;
+  }
+
+ 
+  .example-spacer {
+    flex: 1 1 auto;
   }

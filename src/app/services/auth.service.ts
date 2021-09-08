@@ -23,6 +23,8 @@ export class AuthService {
   }
 
   getUser(){
+    let user=JSON.parse(sessionStorage.getItem("user") as string) as any;
+    this.user.next(user);
     return this.user.asObservable();
   }
 
@@ -38,28 +40,37 @@ export class AuthService {
     }).toPromise();
   }
 
-  getUserData(token:string, id:string){
-    this.headers = this.headers.set('Content-Type', 'application/json; charset=utf-8').set("Authorization", `Bearer ${token}`);
+  getHeaders():HttpHeaders{
+    let token=sessionStorage.getItem("token") as string;
+    return this.headers = this.headers.set('Content-Type', 'application/json; charset=utf-8').set("Authorization", token);
+  }
+
+  getUserData(id:string){
+    
 
     return this.httpClient.get(`${this.baseUrl}/users/${id}`, {
-      headers:this.headers
+      headers:this.getHeaders()
     }).toPromise();
   }
 
   setTokenByUser(token: string) {
     this.tokenBerear.next(token);
+    sessionStorage.setItem("token", token)
   }
   getTokenUSer(){
-    
+    let token=sessionStorage.getItem("token") as string
+    this.tokenBerear.next(token)
     return this.tokenBerear.asObservable();
   }
   setUser(user: any) {
     this.user.next(user);
+    sessionStorage.setItem("user",JSON.stringify(user));
   }
 
   logout(){
     this.user.next(null);
     this.tokenBerear.next("");
+    sessionStorage.clear();
   }
 
 

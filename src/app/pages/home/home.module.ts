@@ -17,6 +17,9 @@ import { HomeRecuiterComponent } from './home-recuiter/home-recuiter.component';
 import { HomeCandidateComponent } from './home-candidate/home-candidate.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { DialogEditCandidate } from './dialog/dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -25,7 +28,7 @@ import { MatInputModule } from '@angular/material/input';
     ToolbarComponent,
     FooterComponent,
     HomeRecuiterComponent,
-    HomeCandidateComponent
+    DialogEditCandidate
   ],
   imports: [
     CommonModule,
@@ -39,7 +42,9 @@ import { MatInputModule } from '@angular/material/input';
     MatTableModule,
     MatListModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatDialogModule,
+    ReactiveFormsModule
   ],
   exports:[ToolbarComponent]
 })

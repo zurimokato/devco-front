@@ -1,6 +1,5 @@
+import { Location } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -11,9 +10,14 @@ export class ToolbarComponent implements OnInit {
 
   @Input()user?:any;
 
-  constructor(private authService:AuthService, private router:Router) { }
+  constructor(private location:Location) { }
 
   ngOnInit(): void {
+  }
+
+  //regresar atras
+  backClicked() {
+    this.location.back();
   }
  
 }

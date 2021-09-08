@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { RecruiterService } from 'src/app/services/recruiter.service';
+import { DialogEditCandidate } from '../dialog/dialog.component';
 
 
 
@@ -16,7 +18,12 @@ export class HomeRecuiterComponent implements OnInit {
 
   candidates = [];
 
-  constructor(private recruiterService: RecruiterService) { }
+  constructor(public dialog: MatDialog,private recruiterService: RecruiterService) {
+    
+
+   }
+
+   
 
   ngOnInit(): void {
     this.recruiterService.getCandidates().then((data: any) => {
@@ -26,7 +33,8 @@ export class HomeRecuiterComponent implements OnInit {
         console.log(data)
         this.dataSource = new MatTableDataSource(data);
       }
-    })
+    });
+
   }
 
   applyFilter(event: Event) {
@@ -35,5 +43,14 @@ export class HomeRecuiterComponent implements OnInit {
   }
 
 
+  openDialog(row:any) {
+    this.dialog.open(DialogEditCandidate, {
+      data: {
+        user: row
+      }
+    }).afterClosed().subscribe(data=>{
+      console.log(data)
+    });
+  }
 
 }
