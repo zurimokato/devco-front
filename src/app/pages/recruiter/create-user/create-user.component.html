@@ -1,0 +1,67 @@
+<mat-toolbar color="primary">
+    <span>Menu para agregar un usuario</span>
+</mat-toolbar>
+<div class="container" fxLayout.gt-sm="row" fxLayout.lt-md="column">
+    <div fxFlex.gt-sm="20%" fxFlex.lt-md="20%" fxLayoutAlign="center center" class="right">
+        <mat-card class="example-card">
+
+            <mat-card-content class="tripulante" fxLayout="column" fxLayout.lt-md="row" fxFlex.sm="colum">
+                <div *ngIf="user" class="text">
+                    <mat-card-title>{{user.firstName}} {{user.lastName}}</mat-card-title>
+                    <p>{{user.email}}</p>
+                </div>
+                <img class="tripulante" src="./assets/imgs/man.png" width="150px" height="150px">
+                <button mat-stroked-button color="warn" class="example-icon" (click)="logoutUser()"
+                    aria-label="Example icon-button with share icon">
+                    <span>Salir</span>
+                    <mat-icon color="warn">exit_to_app</mat-icon>
+                </button>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div fxFlex.gt-sm="80%" fxFlex.lt-md="80%" fxLayoutAlign="center center" class="left">
+        <mat-card>
+            <mat-card-content>
+                <form fxLayout="column" [formGroup]="userForm">
+                    <mat-form-field  appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input matInput placeholder="Placeholder" type="email" formControlName="email">
+                    </mat-form-field>
+                    <div *ngIf="(email.invalid && email.touched) || email.dirty">
+                        <small *ngIf="email.errors?.required" class="text-danger">Email es un campo requerido</small>
+                        <!--question mark(?) is a safe navigation operator-->
+                        <small *ngIf="email.errors?.pattern" class="text-danger">Porfavor Ingresa un correo valido</small>
+                      </div>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Primer Nombre</mat-label>
+                        <input matInput placeholder="Placeholder" type="text" autocomplete="off"
+                            formControlName="firstName">
+                    </mat-form-field>
+                    <div *ngIf="(firstName.invalid && firstName.touched) || firstName.dirty">
+                        <small *ngIf="firstName.errors?.required" class="text-danger">Nombre es un campo requerido</small>
+                        <!--question mark(?) is a safe navigation operator-->
+                      </div>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Apellido</mat-label>
+                        <input matInput placeholder="Placeholder" type="text" autocomplete="off"
+                            formControlName="lastName">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input matInput placeholder="Placeholder" type="password" autocomplete="off"
+                            formControlName="password">
+                    </mat-form-field>
+                    <div *ngIf="(password.invalid && password.touched )|| password.dirty">
+                        <small *ngIf="password.errors?.required" class="text-danger">Contraseña es un campo requerido</small>
+                        <!--question mark(?) is a safe navigation operator-->
+                        <small *ngIf="password.errors?.minlength" class="text-danger">La contraseña debe ser minino de 8 caracteres</small>
+                      </div>
+                    <button mat-raised-button  [disabled]="!userForm.valid" (click)="createCandidate()" color="primary">Crear Candidato</button>
+                </form>
+            </mat-card-content>
+
+        </mat-card>
+    </div>
+</div>

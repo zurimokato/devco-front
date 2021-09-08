@@ -37,26 +37,30 @@ export class LoginComponent implements OnInit {
       if (token) {
         this.authService.setTokenByUser(`Bearer ${token.token}`)
         this.authService.getUserId(token.token).then(id => {
-          console.log(id)
-          this.authService.getUserData(token.token, id).then(data => {
-            console.log(data);
-            this.authService.setUser(data);
-            this.loading = false;
-            this.router.navigate(["/home"])
-          })
+          if (id) {
+            console.log(id)
+            this.authService.getUserData(token.token, id).then(data => {
+              if (data) {
+                this.authService.setUser(data);
+                this.loading = false;
+                this.router.navigate(["/home"])
+              }
+
+            })
+          }
+
         });
       }
 
     },
-    error => {
-        console.log(error)
+      error => {
         this.loading = false;
         this._snackBar.open('Error correo o contraseña incorrectos!!', '', {
           horizontalPosition: 'center',
           verticalPosition: 'bottom',
-          duration:3000
+          duration: 3000
         });
-    }
+      }
     );
 
   }

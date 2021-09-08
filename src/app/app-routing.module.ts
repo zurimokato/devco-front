@@ -14,6 +14,15 @@ const routes: Routes = [
     loadChildren:()=>import('./pages/home/home.module').then(m=>m.HomeModule)
   },
   {
+    path:'recruiter',
+    loadChildren:()=>import('./pages/recruiter/recruiter.module').then(m=>m.RecruiterModule)
+  },
+  {
+    path:'candidate',
+    loadChildren:()=>import('./pages/candidate/candidate.module').then(m=>m.CandidateModule)
+
+  },
+  {
     path:'',
     redirectTo:'/login',
     pathMatch: 'full'

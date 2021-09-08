@@ -9,6 +9,7 @@ export class AuthService {
   public baseUrl = "https://devco-back.herokuapp.com";
   tokenBerear = new BehaviorSubject<string>("");
   user = new BehaviorSubject<any>(null);
+  public headers = new HttpHeaders();
 
 
   constructor(private httpClient: HttpClient) { }
@@ -38,16 +39,19 @@ export class AuthService {
   }
 
   getUserData(token:string, id:string){
-    let headers = new HttpHeaders();
-    headers = headers.set('Content-Type', 'application/json; charset=utf-8').set("Authorization", `Bearer ${token}`);
+    this.headers = this.headers.set('Content-Type', 'application/json; charset=utf-8').set("Authorization", `Bearer ${token}`);
 
     return this.httpClient.get(`${this.baseUrl}/users/${id}`, {
-      headers:headers
+      headers:this.headers
     }).toPromise();
   }
 
   setTokenByUser(token: string) {
     this.tokenBerear.next(token);
+  }
+  getTokenUSer(){
+    
+    return this.tokenBerear.asObservable();
   }
   setUser(user: any) {
     this.user.next(user);

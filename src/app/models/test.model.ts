@@ -1,6 +1,6 @@
 export class Test{
     name?:string;
-    questions:SimpleQuestion[];
+    questions:Question[];
 
     constructor(){
         this.questions=[];
@@ -8,16 +8,12 @@ export class Test{
 }
 
 
-export class SimpleQuestion{ 
-    answers:Answer[]
+export class Question{ 
+    answers?:Answer[]
+    type?:string;
     constructor(){
-        this.answers=[]
+        
     }
-
-}
-
-
-export class MultiSelecQuestion extends SimpleQuestion{
 
 }
 
