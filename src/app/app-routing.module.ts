@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LoginAccessGuard } from './guards/login-access.guard';
+import { RoleGuard } from './guards/role.guard';
 
 const routes: Routes = [
   {
     path:'login',
     loadChildren:()=>import('./pages/login/login.module').then(m=>m.LoginModule),
+    canActivate:[LoginAccessGuard]
     
   },
   {
@@ -15,7 +17,8 @@ const routes: Routes = [
   },
   {
     path:'recruiter',
-    loadChildren:()=>import('./pages/recruiter/recruiter.module').then(m=>m.RecruiterModule)
+    loadChildren:()=>import('./pages/recruiter/recruiter.module').then(m=>m.RecruiterModule),
+   
   },
   {
     path:'candidate',
