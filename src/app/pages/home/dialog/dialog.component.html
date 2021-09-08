@@ -23,6 +23,14 @@
                 <mat-label>Apellido</mat-label>
                 <input matInput placeholder="Placeholder" type="text" autocomplete="off" formControlName="lastName">
             </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Asignar Test</mat-label>
+                <mat-select formControlName="test">
+                    <mat-option>Clear</mat-option>
+                    <mat-option  *ngFor="let test of tests" value="valid">{{test.name}}</mat-option>
+                   
+                  </mat-select>
+            </mat-form-field>
             <div fxLayout="row">
                 <button mat-raised-button mat-dialog-close [disabled]="!userForm.valid" (click)="updateCandidate()"
                     color="primary">Actualizar</button>

@@ -34,7 +34,7 @@ export class TestService {
   }
 
   getQuestions(testId:string){
-    return this.httpClient.get(`${this.authService.baseUrl}/${testId}/simple-questions`,{
+    return this.httpClient.get(`${this.authService.baseUrl}/tests/${testId}/simple-questions`,{
       headers:this.authService.getHeaders()
     }).toPromise()
   }

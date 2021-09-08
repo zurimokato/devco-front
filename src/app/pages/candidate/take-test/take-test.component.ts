@@ -27,6 +27,8 @@ export class TakeTestComponent implements OnInit {
           
         }
       });
+
+      this.getTest(this.testId)
   }
 
   logoutUser(){
