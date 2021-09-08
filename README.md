@@ -7,6 +7,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ![alt text](./arquitecture/architecture.drawio.png)
 Para este proyecto se tiene planeada la suigiente arquitectura
 
+el front como se muestra esta sobre un cliente angular que nos permite el desarrollo de manera rapida, tambien se implemento 
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
