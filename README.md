@@ -49,6 +49,10 @@ la base de datos que se utiliza es una base de datos no relacional en mongodb de
 
 
 ## casos de uso 
+<p align="center">
+  <img  src="./arquitecture/casodeuso.jpg">
+</p>
+
  para probar la aplicacion se tienen dos usuarios con diferentes roles.
  
  ### candidato:
