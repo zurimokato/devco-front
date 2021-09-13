@@ -17,6 +17,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { TableTestComponent } from './table-test/table-test.component';
 import { MatTableModule } from '@angular/material/table';
 import {MatSelectModule} from '@angular/material/select';
+import { HomeModule } from '../home/home.module';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatButtonModule,
     MatDialogModule,
     MatTableModule,
-    MatSelectModule
+    MatSelectModule,
+    HomeModule
   ]
 })
 export class RecruiterModule { }

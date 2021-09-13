@@ -1,11 +1,4 @@
-<mat-toolbar fxLayout="row" color="primary">
-    <button mat-icon-button (click)="backClicked()" class="example-icon"
-        aria-label="Example icon-button with menu icon">
-        <mat-icon>keyboard_backspace</mat-icon>
-    </button>
-    <span>Tabla de pruebas</span>
-    <span class="example-spacer"></span>
-</mat-toolbar>
+<app-toolbar [title]="title"></app-toolbar>
 <div class="container" fxLayout.gt-sm="row" fxLayout.lt-md="column">
 
     <div fxFlex.gt-sm="20%" fxFlex.lt-md="20%" fxLayoutAlign="center center" class="right">

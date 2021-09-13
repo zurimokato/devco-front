@@ -14,7 +14,7 @@ import { RecruiterService } from '../../../services/recruiter.service';
 export class CreateUserComponent implements OnInit {
   user: any;
   loading: boolean = false;
-
+  title="Registrar Candidato"
   userForm: FormGroup;
   constructor(private location:Location,private authService: AuthService, private router: Router, private recruiterService: RecruiterService) {
     this.userForm = new FormGroup({

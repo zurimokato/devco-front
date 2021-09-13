@@ -1,8 +1,10 @@
 <!-- Toolbar -->
 <mat-toolbar color="primary">
     <button mat-icon-button (click)="backClicked()" class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>menu</mat-icon>
+      <mat-icon *ngIf='title == "Home"'>menu</mat-icon>
+      <mat-icon *ngIf='title !== "Home"'>keyboard_backspace</mat-icon>
     </button>
     <span *ngIf="user">Bienvenido {{user.firstName}}</span>
+    <span *ngIf="!user">{{title}}</span>
     <span class="example-spacer"></span>
   </mat-toolbar>

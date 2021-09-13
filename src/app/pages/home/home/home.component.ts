@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class HomeComponent implements OnInit {
 
   user:any;
+  title="Home";
   constructor(private authService:AuthService, private router:Router) { }
 
   ngOnInit(): void {

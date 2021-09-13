@@ -1,38 +1,16 @@
-<mat-toolbar fxLayout="row" color="primary">
-    <button mat-icon-button (click)="backClicked()" class="example-icon"
-        aria-label="Example icon-button with menu icon">
-        <mat-icon>keyboard_backspace</mat-icon>
-    </button>
-    <span>Examen</span>
-    <span class="example-spacer"></span>
-</mat-toolbar>
-<div class="container" fxLayout.gt-sm="row" fxLayout.lt-md="column">
-    <div fxFlex.gt-sm="20%" fxFlex.lt-md="20%" fxLayoutAlign="center center" class="right">
-        <mat-card class="estilo example-card">
-            <mat-card-content class="tripulante" fxLayout="column" fxLayout.lt-md="row" fxFlex.sm="colum">
-                <div *ngIf="user" class="text">
-                    <mat-card-title>{{user.firstName}} {{user.lastName}}</mat-card-title>
-                    <p>{{user.email}}</p>
-                </div>
-                <img class="tripulante" src="./assets/imgs/man.png" width="150px" height="150px">
-                <button mat-stroked-button color="warn" class="example-icon" (click)="logoutUser()"
-                    aria-label="Example icon-button with share icon">
-                    <span>Salir</span>
-                    <mat-icon color="warn">exit_to_app</mat-icon>
-                </button>
-            </mat-card-content>
-        </mat-card>
-    </div>
-    <div fxLayoutAlign="center center" class="left">
-        <div *ngIf="user" class="estilo example-card">
+<app-toolbar [title]="title"></app-toolbar>
 
-            <mat-card-title *ngIf="test">{{test.name}}</mat-card-title>
+<mat-card *ngIf="user">
+    <mat-card-header>
+        <mat-card-title *ngIf="test">{{test.name}}</mat-card-title>
+    </mat-card-header>
 
-
-            <mat-list *ngIf="test">
-                <mat-list-item *ngFor="let question of test.questions; let i = index">
-                    <div matLine>
-                        <div style="margin-bottom: 5px; margin-right: 20px;">
+    <mat-card-content>
+        <mat-list *ngIf="test">
+            <mat-list-item *ngFor="let question of test.questions; let i = index">
+                <div matLine>
+                    <div style="margin-bottom: 5px; margin-right: 20px;">
+                        <mat-card>
                             <mat-card-title>{{question.name}}</mat-card-title>
                             <mat-card-subtitle *ngIf="question.type=='simple'">Selecciona una sola respuesta
                             </mat-card-subtitle>
@@ -43,7 +21,6 @@
                                     <div *ngIf="question.anwsers">
                                         <mat-list>
                                             <mat-list-item *ngFor="let anwser of question.anwsers">
-
                                                 <div matLine>{{anwser.name}} </div>
                                             </mat-list-item>
                                         </mat-list>
@@ -53,13 +30,10 @@
                                 </div>
 
                             </mat-card-content>
-                        </div>
+                        </mat-card>
                     </div>
-                </mat-list-item>
-                <mat-divider></mat-divider>
-            </mat-list>
-
-
-        </div>
-    </div>
-</div>
+                </div>
+            </mat-list-item>
+        </mat-list>
+    </mat-card-content>
+</mat-card>

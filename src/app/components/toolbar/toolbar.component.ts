@@ -9,6 +9,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ToolbarComponent implements OnInit {
 
   @Input()user?:any;
+  @Input()title?:any;
 
   constructor(private location:Location) { }
 

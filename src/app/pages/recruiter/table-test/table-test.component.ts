@@ -14,6 +14,7 @@ export class TableTestComponent implements OnInit {
   user: any;
   displayedColumns: string[] = ['name', 'theme', 'actions'];
   dataSource: MatTableDataSource<any> = new MatTableDataSource();
+  title="Tablas de pruebas"
   tests=[];
   constructor(private authService: AuthService, private router: Router, private location: Location, private testService:TestService) { }
 

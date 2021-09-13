@@ -15,6 +15,7 @@ export class TakeTestComponent implements OnInit {
   user: any;
   test: any;
   questions: any;
+  title="Exman"
 
   constructor(private testService: TestService, private activeRouter: ActivatedRoute, private authService: AuthService, private router: Router, private location: Location) { }
 
