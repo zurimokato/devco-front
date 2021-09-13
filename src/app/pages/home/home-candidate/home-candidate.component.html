@@ -8,13 +8,13 @@
   
     <!-- Position Column -->
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Nombre. </th>
+      <th mat-header-cell *matHeaderCellDef> Nombre </th>
       <td mat-cell *matCellDef="let element"> {{element.name}} </td>
     </ng-container>
   
     <!-- Name Column -->
     <ng-container matColumnDef="theme">
-      <th mat-header-cell *matHeaderCellDef> Apellido </th>
+      <th mat-header-cell *matHeaderCellDef> Categoria </th>
       <td mat-cell *matCellDef="let element"> {{element.theme.name}} </td>
     </ng-container>
   
@@ -23,8 +23,8 @@
       <th class="text-center" mat-header-cell *matHeaderCellDef> Acciones </th>
   
       <td class="text-center" mat-cell *matCellDef="let row">
-        <button mat-button [routerLink]="['/candidate/take-test', row.id]">
-            <mat-icon>edit</mat-icon>
+        <button color="accent" mat-button [routerLink]="['/candidate/take-test', row.id]">
+            <mat-icon color="accent">edit</mat-icon>
             Realizar examen
         </button>
         
