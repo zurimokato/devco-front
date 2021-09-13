@@ -1,9 +1,8 @@
 <app-toolbar [title]="title"></app-toolbar>
 <div class="container" fxLayout.gt-sm="row" fxLayout.lt-md="column">
 
-    <div fxFlex.gt-sm="20%" fxFlex.lt-md="20%" fxLayoutAlign="center center" class="right">
-        <mat-card class="example-card">
-
+    <div fxFlex.gt-sm="20%" fxFlex.lt-md="20%" fxLayoutAlign="center center">
+        <mat-card>
             <mat-card-content class="tripulante" fxLayout="column" fxLayout.lt-md="row" fxFlex.sm="colum">
                 <div *ngIf="user" class="text">
                     <mat-card-title>{{user.firstName}} {{user.lastName}}</mat-card-title>
