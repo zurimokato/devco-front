@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog,MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
@@ -15,13 +15,13 @@ export class CreateUserComponent implements OnInit {
   user: any;
   loading: boolean = false;
   title="Registrar Candidato"
-  userForm: FormGroup;
+  userForm: UntypedFormGroup;
   constructor(private location:Location,private authService: AuthService, private router: Router, private recruiterService: RecruiterService) {
-    this.userForm = new FormGroup({
-      firstName: new FormControl('', Validators.compose([Validators.required])),
-      lastName: new FormControl('', Validators.compose([])),
-      email: new FormControl('', Validators.compose([Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")])),
-      password: new FormControl('', Validators.compose([Validators.required, Validators.minLength(7)])),
+    this.userForm = new UntypedFormGroup({
+      firstName: new UntypedFormControl('', Validators.compose([Validators.required])),
+      lastName: new UntypedFormControl('', Validators.compose([])),
+      email: new UntypedFormControl('', Validators.compose([Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")])),
+      password: new UntypedFormControl('', Validators.compose([Validators.required, Validators.minLength(7)])),
     })
 
   }
@@ -41,16 +41,16 @@ export class CreateUserComponent implements OnInit {
 
   //obtener el email form para validar sus valores
   get email() {
-    return this.userForm.get('email') as FormControl;
+    return this.userForm.get('email') as UntypedFormControl;
   }
   //obtener el firtsName control para validar si es requerido
   get firstName(){
-    return this.userForm.get('firstName') as FormControl;
+    return this.userForm.get('firstName') as UntypedFormControl;
   }
 
   //obtener el password form para validar sus valores
   get password() {
-    return this.userForm.get('password') as FormControl;
+    return this.userForm.get('password') as UntypedFormControl;
   }
 
   createCandidate(){

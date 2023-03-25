@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from "@angular/core";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { UntypedFormControl, UntypedFormGroup, Validators } from "@angular/forms";
 import { MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { RecruiterService } from "src/app/services/recruiter.service";
 import { TestService } from "src/app/services/test.service";
@@ -11,15 +11,15 @@ import { TestService } from "src/app/services/test.service";
 })
 
 export class DialogEditCandidate implements OnInit {
-    userForm: FormGroup;
+    userForm: UntypedFormGroup;
     tests:any;
     constructor(@Inject(MAT_DIALOG_DATA) public data: any, private recruiterService:RecruiterService, private testSrvice:TestService) {
         console.log(data);
-        this.userForm = new FormGroup({
-            firstName: new FormControl('', Validators.compose([Validators.required])),
-            lastName: new FormControl('', Validators.compose([])),
-            email: new FormControl('', Validators.compose([Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")])),
-            test:new FormControl('',Validators.compose([]))
+        this.userForm = new UntypedFormGroup({
+            firstName: new UntypedFormControl('', Validators.compose([Validators.required])),
+            lastName: new UntypedFormControl('', Validators.compose([])),
+            email: new UntypedFormControl('', Validators.compose([Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")])),
+            test:new UntypedFormControl('',Validators.compose([]))
         });
         this.userForm.setValue({
             firstName: data.user.firstName,
@@ -48,10 +48,10 @@ export class DialogEditCandidate implements OnInit {
 
     //obtener el email form para validar sus valores
     get email() {
-        return this.userForm.get('email') as FormControl;
+        return this.userForm.get('email') as UntypedFormControl;
     }
     //obtener el firtsName control para validar si es requerido
     get firstName() {
-        return this.userForm.get('firstName') as FormControl;
+        return this.userForm.get('firstName') as UntypedFormControl;
     }
 }

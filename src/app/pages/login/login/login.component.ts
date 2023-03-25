@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
@@ -12,14 +12,14 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoginComponent implements OnInit {
 
   loading: boolean = false;
-  loginFormGroup: FormGroup;
+  loginFormGroup: UntypedFormGroup;
 
   constructor(private authService: AuthService, private router: Router,
     private _snackBar: MatSnackBar) {
-    this.loginFormGroup = new FormGroup(
+    this.loginFormGroup = new UntypedFormGroup(
       {
-        userEmail: new FormControl('', Validators.compose([Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")])),
-        userPassword: new FormControl('', Validators.compose([Validators.required, Validators.minLength(7)]))
+        userEmail: new UntypedFormControl('', Validators.compose([Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")])),
+        userPassword: new UntypedFormControl('', Validators.compose([Validators.required, Validators.minLength(7)]))
       }
     )
   }
@@ -68,12 +68,12 @@ export class LoginComponent implements OnInit {
 
   //obtener el email form para validar sus valores
   get userEmail() {
-    return this.loginFormGroup.get('userEmail') as FormControl;
+    return this.loginFormGroup.get('userEmail') as UntypedFormControl;
   }
 
   //obtener el password form para validar sus valores
   get userPassword() {
-    return this.loginFormGroup.get('userPassword') as FormControl;
+    return this.loginFormGroup.get('userPassword') as UntypedFormControl;
   }
 
 }
