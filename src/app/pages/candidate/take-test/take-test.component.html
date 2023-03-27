@@ -10,23 +10,38 @@
             <mat-list-item *ngFor="let question of test.questions; let i = index">
                 <div matLine>
                     <div style="margin-bottom: 5px; margin-right: 20px;">
-                        <mat-card>
+                        <mat-card  *ngIf="question.type=='simple'">
                             <mat-card-title>{{question.name}}</mat-card-title>
-                            <mat-card-subtitle *ngIf="question.type=='simple'">Selecciona una sola respuesta
-                            </mat-card-subtitle>
-                            <mat-card-subtitle *ngIf="question.type=='multiple'">Selección multiple
+                            <mat-card-subtitle>Selecciona una sola respuesta
                             </mat-card-subtitle>
                             <mat-card-content>
                                 <div *ngIf="question">
                                     <div *ngIf="question.anwsers">
-                                        <mat-list>
-                                            <mat-list-item *ngFor="let anwser of question.anwsers">
+                                        <mat-radio-group
+                                            aria-labelledby="example-radio-group-label"
+                                            class="example-radio-group"
+                                            >
+                                            <mat-radio-button class="example-radio-button" *ngFor="let anwser of question.anwsers" [value]="anwser.id">
                                                 <div matLine>{{anwser.name}} </div>
-                                            </mat-list-item>
-                                        </mat-list>
-
+                                            </mat-radio-button>
+                                        </mat-radio-group>
                                     </div>
+                                </div>
 
+                            </mat-card-content>
+                        </mat-card>
+
+                        <mat-card  *ngIf="question.type=='multiple'">
+                            <mat-card-title>{{question.name}}</mat-card-title>
+                            <mat-card-subtitle>Selecciona multiples respuestas
+                            </mat-card-subtitle>
+                            <mat-card-content>
+                                <div *ngIf="question">
+                                    <div *ngIf="question.anwsers" >
+                                        
+                                        <p class="list-item"   *ngFor="let anwser of question.anwsers"><mat-checkbox matLine >{{anwser.name}}</mat-checkbox></p>
+                                       
+                                    </div>
                                 </div>
 
                             </mat-card-content>

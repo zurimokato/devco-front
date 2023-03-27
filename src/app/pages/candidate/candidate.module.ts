@@ -17,6 +17,10 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatDividerModule} from '@angular/material/divider';
 import { HomeModule } from '../home/home.module';
+import { MatRadioModule } from '@angular/material/radio';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
+
 
 
 @NgModule({
@@ -39,7 +43,9 @@ import { HomeModule } from '../home/home.module';
     MatDialogModule,
     ReactiveFormsModule,
     MatDividerModule,
-    HomeModule
+    HomeModule,
+    MatRadioModule,
+    MatCheckboxModule
   ]
 })
 export class CandidateModule { }

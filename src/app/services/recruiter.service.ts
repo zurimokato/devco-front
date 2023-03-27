@@ -1,5 +1,6 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -16,17 +17,17 @@ export class RecruiterService {
   }
 
   getCandidates(){
-    return this.httpClient.get(`${this.authService.baseUrl}/users/candidates?filter[where][roles][inq]='candidate'`,{headers:this.authService.getHeaders()} ).toPromise();
+    return this.httpClient.get(`${environment.baseUrl}/users/candidates?filter[where][roles][inq]='candidate'`,{headers:this.authService.getHeaders()} ).toPromise();
   }
 
   createCandidate(candidate:any){
-    return this.httpClient.post(`${this.authService.baseUrl}/users`,candidate,{
+    return this.httpClient.post(`${environment.baseUrl}/users`,candidate,{
       headers:this.authService.getHeaders()
     }).toPromise();
   }
 
   updateCandidate(id:string,candidate:any){
-    return this.httpClient.put(`${this.authService.baseUrl}/users/${id}`,candidate,{
+    return this.httpClient.put(`${environment.baseUrl}/users/${id}`,candidate,{
       headers:this.authService.getHeaders()
     }).toPromise()
   }

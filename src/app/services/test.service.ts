@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -10,28 +11,26 @@ export class TestService {
   constructor(private httpClient:HttpClient, private authService:AuthService) { }
 
   getTest(testId:string){
-    return this.httpClient.get(`${this.authService.baseUrl}/tests/${testId}`,{
+    return this.httpClient.get(`${environment.baseUrl}/tests/${testId}`,{
       headers:this.authService.getHeaders()
     }).toPromise();
   }
-  addTest(userId:string, test:any){
-
-  }
+  
   getTests(){
-    return this.httpClient.get(`${this.authService.baseUrl}/tests`,{
+    return this.httpClient.get(`${environment.baseUrl}/tests`,{
       headers:this.authService.getHeaders()
     }).toPromise();
   }
 
   getThemes(){
-    return this.httpClient.get(`${this.authService.baseUrl}/themes`,{
+    return this.httpClient.get(`${environment.baseUrl}/themes`,{
       headers:this.authService.getHeaders()
     }).toPromise();
   }
   
   updateTest(userId:string, testid:string){
 
-    return this.httpClient.patch(`${this.authService.baseUrl}/tests/${testid}`,
+    return this.httpClient.patch(`${environment.baseUrl}/tests/${testid}`,
     {
  
       "userIdCandidate": userId
@@ -43,14 +42,14 @@ export class TestService {
   }
 
   getQuestions(testId:string){
-    return this.httpClient.get(`${this.authService.baseUrl}/tests/${testId}/simple-questions`,{
+    return this.httpClient.get(`${environment.baseUrl}/tests/${testId}/simple-questions`,{
       headers:this.authService.getHeaders()
     }).toPromise()
   }
 
   getAnwser(questionId:string){
     console.log(questionId)
-    return this.httpClient.get(`${this.authService.baseUrl}/simple-questions/${questionId}/anwsers`,{
+    return this.httpClient.get(`${environment.baseUrl}/simple-questions/${questionId}/anwsers`,{
       headers:this.authService.getHeaders()
     }).toPromise();
   }

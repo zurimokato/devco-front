@@ -25,6 +25,8 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    console.log('oninit');
   }
 
 
@@ -32,7 +34,7 @@ export class LoginComponent implements OnInit {
   login() {
     this.loading = true;
     console.log(this.loginFormGroup.value);
-    let user = this.loginFormGroup.value
+    let user= this.loginFormGroup.value
     this.authService.login(user).subscribe((token: any) => {
       if (token) {
         this.authService.setTokenByUser(`Bearer ${token.token}`)

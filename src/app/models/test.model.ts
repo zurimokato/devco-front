@@ -11,9 +11,6 @@ export class Test{
 export class Question{ 
     answers?:Answer[]
     type?:string;
-    constructor(){
-        
-    }
 
 }
 

@@ -3,7 +3,7 @@
     <div class="row">
       <mat-card-subtitle class="column">Lista de candidatos</mat-card-subtitle>
       <button class="column add" mat-raised-button color="accent" [routerLink]="['/recruiter/add-user']"
-        aria-label="Example icon button with a delete icon">
+        aria-label="Boton para registrar candidato">
         <mat-icon>add</mat-icon>
         Registrar candidato
       </button>
@@ -12,9 +12,9 @@
   <div class="column">
     <div class="row">
       <button class="column" mat-raised-button color="accent" [routerLink]="['/recruiter/test']"
-        aria-label="Example icon button with a delete icon">
+        aria-label="Boton para listar pruebas técnicas">
         <mat-icon>edit</mat-icon>
-        Revisar Pruebas Tecnicas
+         Pruebas Tecnicas
       </button>
       <div class="column"></div>
 
@@ -28,7 +28,7 @@
 </mat-form-field>
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
+  <caption>Tablas de los prospectos</caption>
   <!-- Position Column -->
   <ng-container matColumnDef="firstName">
     <th mat-header-cell *matHeaderCellDef> Nombre. </th>
@@ -53,6 +53,9 @@
 
     <td class="text-center" mat-cell *matCellDef="let row">
       <button mat-button (click)="openDialog(row)">EDIT</button>
+    </td>
+    <td class="text-center" mat-cell *matCellDef="let row">
+      <button mat-button (click)="openDialog(row)">Revisar Examen</button>
     </td>
   </ng-container>
 

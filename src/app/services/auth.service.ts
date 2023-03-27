@@ -1,12 +1,12 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  public baseUrl = "https://devco-back.herokuapp.com";
   tokenBerear = new BehaviorSubject<string>("");
   user = new BehaviorSubject<any>(null);
   public headers = new HttpHeaders();
@@ -15,7 +15,8 @@ export class AuthService {
   constructor(private httpClient: HttpClient) { }
 
   login(user: any) {
-    return this.httpClient.post(`${this.baseUrl}/users/login`, {
+    console.log(`${environment.baseUrl}/users/login`);
+    return this.httpClient.post(`${environment.baseUrl}/users/login`, {
       email: user.userEmail,
       password: user.userPassword
     });
@@ -23,7 +24,7 @@ export class AuthService {
   }
 
   getUser(){
-    let user=JSON.parse(sessionStorage.getItem("user") as string) as any;
+    let user=JSON.parse(sessionStorage.getItem("user") as string) ;
     this.user.next(user);
     return this.user.asObservable();
   }
@@ -34,7 +35,7 @@ export class AuthService {
     headers = headers.set('Content-Type', 'application/json; charset=utf-8').set("Authorization", `Bearer ${token}`);
 
     console.log(token)
-    return this.httpClient.get(`${this.baseUrl}/whoAmI`, {
+    return this.httpClient.get(`${environment.baseUrl}/whoAmI`, {
       responseType: 'text',
       headers: headers
     }).toPromise();
@@ -45,10 +46,10 @@ export class AuthService {
     return this.headers = this.headers.set('Content-Type', 'application/json; charset=utf-8').set("Authorization", token);
   }
 
-  getUserData(id:string){
+  getUserData(id:string):Promise<any>{
     
 
-    return this.httpClient.get(`${this.baseUrl}/users/${id}`, {
+    return this.httpClient.get(`${environment.baseUrl}/users/${id}`, {
       headers:this.getHeaders()
     }).toPromise();
   }

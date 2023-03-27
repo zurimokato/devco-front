@@ -13,9 +13,6 @@ export class User{
     
     roles?:string[]
 
-    constructor(){
-       
-    }
 }
 
 
