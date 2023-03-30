@@ -12,6 +12,7 @@ import { DialogEditCandidate } from '../dialog/dialog.component';
   styleUrls: ['./home-recuiter.component.scss']
 })
 export class HomeRecuiterComponent implements OnInit {
+  loading=true;
 
   displayedColumns: string[] = ['firstName', 'lastName', 'userEmail', 'actions'];
   dataSource: MatTableDataSource<any> = new MatTableDataSource();
@@ -28,7 +29,7 @@ export class HomeRecuiterComponent implements OnInit {
   ngOnInit(): void {
     this.recruiterService.getCandidates().then((data: any) => {
       if (data) {
-
+        this.loading=false;
         this.candidates = data;
         console.log(data)
         this.dataSource = new MatTableDataSource(data);

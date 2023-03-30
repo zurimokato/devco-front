@@ -16,6 +16,7 @@ export class TakeTestComponent implements OnInit {
   test: any;
   questions: any;
   title="Exman"
+  loading=true;
 
   constructor(private testService: TestService, private activeRouter: ActivatedRoute, private authService: AuthService, private router: Router, private location: Location) { }
 
@@ -30,7 +31,7 @@ export class TakeTestComponent implements OnInit {
       }
     });
 
-    this.getTest(this.testId)
+    this.getTest(this.testId);
   }
 
   logoutUser() {
@@ -44,6 +45,7 @@ export class TakeTestComponent implements OnInit {
  async getTest(testId: string) {
     this.testService.getTest(testId).then(data => {
       if (data) {
+       
         this.test = data;
         this.testService.getQuestions(testId).then(async questions => {
           if (questions) {
@@ -52,7 +54,7 @@ export class TakeTestComponent implements OnInit {
               this.test.questions[i].anwsers =  await this.testService.getAnwser(this.test.questions[i].id)
             }
             console.log(this.test)
-       
+            this.loading=false;
           }
         });
       }

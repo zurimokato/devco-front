@@ -19,6 +19,9 @@ import {MatDividerModule} from '@angular/material/divider';
 import { HomeModule } from '../home/home.module';
 import { MatRadioModule } from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { LoadingComponent } from '../utils/loading/loading.component';
+import { UtilSModuleModule } from '../utils/utils.module';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 
@@ -45,7 +48,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatDividerModule,
     HomeModule,
     MatRadioModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatProgressSpinnerModule,
+    UtilSModuleModule
   ]
 })
 export class CandidateModule { }

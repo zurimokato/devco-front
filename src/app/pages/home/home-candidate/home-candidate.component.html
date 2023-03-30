@@ -3,8 +3,10 @@
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. juan" #input>
   </mat-form-field>
+
+  <app-loading [loading]="loading"></app-loading>
   
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <table *ngIf="!loading" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   
     <!-- Position Column -->
     <ng-container matColumnDef="name">

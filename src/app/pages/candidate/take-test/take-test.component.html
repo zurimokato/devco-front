@@ -1,12 +1,14 @@
 <app-toolbar [title]="title"></app-toolbar>
 
-<mat-card *ngIf="user">
-    <mat-card-header>
-        <mat-card-title *ngIf="test">{{test.name}}</mat-card-title>
-    </mat-card-header>
 
-    <mat-card-content>
-        <mat-list *ngIf="test">
+
+<mat-card *ngIf="user">
+    <mat-card-header *ngIf="!loading">
+        <mat-card-title>{{test.name}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content >
+        <app-loading [loading]="loading"></app-loading>
+        <mat-list *ngIf="!loading">
             <mat-list-item *ngFor="let question of test.questions; let i = index">
                 <div matLine>
                     <div style="margin-bottom: 5px; margin-right: 20px;">

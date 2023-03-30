@@ -20,6 +20,10 @@ import { DialogEditCandidate } from './dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { LoadingComponent } from '../utils/loading/loading.component';
+import { UtilSModuleModule } from '../utils/utils.module';
+
 
 
 @NgModule({
@@ -29,7 +33,7 @@ import {MatSelectModule} from '@angular/material/select';
     FooterComponent,
     HomeRecuiterComponent,
     DialogEditCandidate,
-    HomeCandidateComponent
+    HomeCandidateComponent,
   ],
   imports: [
     CommonModule,
@@ -46,7 +50,9 @@ import {MatSelectModule} from '@angular/material/select';
     MatInputModule,
     MatDialogModule,
     ReactiveFormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatProgressSpinnerModule,
+    UtilSModuleModule
   ],
   exports:[ToolbarComponent]
 })

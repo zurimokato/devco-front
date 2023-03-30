@@ -17,6 +17,7 @@ export class HomeCandidateComponent implements OnInit {
 
   user:any;
   tests:any;
+  loading=true;
 
   constructor(public dialog: MatDialog,private testService: TestService, private authService:AuthService) {
     
@@ -38,6 +39,7 @@ export class HomeCandidateComponent implements OnInit {
     if(Array.isArray(test)){
       this.tests=test.filter(data=>data.userIdCandidate ===this.user.id)
       console.log(this.tests);
+      this.loading=false;
       this.dataSource=new MatTableDataSource( this.tests)
     }
    })

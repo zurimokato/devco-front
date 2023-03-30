@@ -27,7 +27,9 @@
   <input matInput (keyup)="applyFilter($event)" placeholder="Ex. juan" #input>
 </mat-form-field>
 
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<app-loading [loading]="loading"></app-loading>
+
+<table *ngIf="!loading" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   <caption>Tablas de los prospectos</caption>
   <!-- Position Column -->
   <ng-container matColumnDef="firstName">
